@@ -1,0 +1,37 @@
+{% extends "back_end/base.html" %}
+
+{% block title %}store info page{% endblock %}
+
+{% block headline %}this is a headline{% endblock %}
+
+{% block extrahead %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/test.css" %}">
+{% endblock %}
+{% block content %}
+    <div id="wrap" class="ng-scope">
+        <div id="menu">
+            <div class="menu-bg">
+            </div>
+        </div>
+        <div id="container">
+            <div class="content">
+                <div class="cont-in">
+                    <div class="spinnerCenter hide"></div>
+                    <div id="royalTheater">
+                        <div id="ng-view">
+                            <div class="notice">
+                                <i class="xicon-cannot-action mr10"></i>请选择查询类型
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="footer">
+                    <hr><p><a href="#wrap">Back to top</a>.
+                    <span class="copyright">Copyright © Miles.Mai All Rights Reserved.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

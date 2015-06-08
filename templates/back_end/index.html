@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>gm_store_manager_CS</title>
+    {% load staticfiles %}
+    <script src="{% static "js/jquery-1.8.3.min.js" %}"></script>
+
+    <style type="text/css">
+        .style_table
+        {
+            width: 100%;
+        }
+        .style_table tr
+        {
+            background-color:#f6f9ff;
+            text-align:center;
+        }
+        .style_table tr td
+        {
+            text-align:center;
+        }
+    </style>
+
+    <script language="javascript" type="text/javascript">
+        function query_info(selectValue) {
+            if(selectValue === 'None') {
+                var queryInfo = $('#queryInfo');
+                queryInfo.html("");
+                return;
+            }
+            var htmlUrl = '/manager_CS/' + selectValue;
+            var user_id, start, end, item_id;
+{#            if(selectValue === 'query_data') {#}
+{#                user_id = $('#action_record input[name="user_id"]').val();#}
+{#                start = $('#action_record input[name="start"]').val();#}
+{#                end = $('#action_record input[name="end"]').val();#}
+{#                htmlUrl += '?user_id=' + user_id + '&start=' + start + '&end=' + end;#}
+{#            } else if(selectValue === 'set_anonymity' || selectValue === 'unset_anonymity' ) {#}
+{#                user_id = $('#action_record input[name="user_id"]').val();#}
+{#                item_id = $('#action_record input[name="item_id"]').val();#}
+{#                htmlUrl += '?user_id=' + user_id + '&item_id=' + item_id;#}
+{#            }#}
+            $.ajax({
+                url: htmlUrl,
+                type: 'GET',
+{#                dataType: 'json',#}
+                success: function(data) {
+                    var queryInfo = $('#queryInfo');
+                    queryInfo.html("");
+                    console.log(data);
+                    if(data == null) {
+                        queryInfo.html("找不到该html页面");
+                    } else {
+                        queryInfo.append(data);
+                    }
+                },
+                async: true
+            });
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <form id="manager_CS" name="manager_CS">
+            <p><input type="button" onclick="query_info('store_info_all')" value="查询已经开通旗舰店的厂家信息" /></p>
+{#            <p><input type="button" onclick="query_info('create_file')" value="创建随机数据到文本文件--test_data.txt" /></p>#}
+{#            <p><input type="button" onclick="query_info('read_file')" value="从文本文件--test_data.txt--读取测试数据到cassandra" /></p>#}
+{#            <p>#}
+{#                <input type="text" placeholder="输入用户user_id" id="user_id" name="user_id" onkeyup="value=value.replace(/[^\d]/g,'')"#}
+{#                       onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />#}
+{#                <input type="text" placeholder="请求数据开始start" id="start" name="start" onkeyup="value=value.replace(/[^\d]/g,'')"#}
+{#                       onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />#}
+{#                <input type="text" placeholder="请求数据结束end" id="end" name="end" onkeyup="value=value.replace(/[^\d]/g,'')"#}
+{#                       onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />#}
+{#                <input type="text" placeholder="输入item_id" id="item_id" name="item_id" onkeyup="value=value.replace(/[^\d]/g,'')"#}
+{#                       onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />#}
+{#            </p>#}
+{#            <p><input type="button" onclick="query_info('query_data')" value="根据user_id查询用户近期动态" /></p>#}
+{#            <p><input type="button" onclick="query_info('set_anonymity')" value="设置item_id为匿名状态" /></p>#}
+{#            <p><input type="button" onclick="query_info('unset_anonymity')" value="取消item_id的匿名状态" /></p>#}
+        </form>
+    </div>
+    <div id="queryInfo">
+
+    </div>
+</body>
+</html>

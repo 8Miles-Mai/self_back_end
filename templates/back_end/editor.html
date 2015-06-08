@@ -1,0 +1,20 @@
+{% extends "back_end/base.html" %}
+
+{% block title %}editor{% endblock %}
+
+{% block headline %}this is a headline{% endblock %}
+
+{% block extrahead %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/GitHub2.css" %}">
+{% endblock %}
+{% block content %}
+
+    <textarea id="markdown" oninput="this.editor.update()" rows="6" cols="60" placeholder="输入markdown格式内容"></textarea>
+
+    <div id="preview" class="preview"></div>
+
+    <script src="{% static "js/showdown.min.js" %}"></script>
+    <script src="{% static "js/showdown-table.min.js" %}"></script>
+    <script src="{% static "js/markdown-preview.js" %}"></script>
+{% endblock %}

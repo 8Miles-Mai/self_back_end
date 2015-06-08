@@ -1,0 +1,24 @@
+{% extends "back_end/base.html" %}
+
+{% block title %}showup{% endblock %}
+
+{% block headline %}this is a headline{% endblock %}
+
+{% block extrahead %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/GitHub2.css" %}">
+{% endblock %}
+{% block content %}
+
+{#    <textarea id="input" class="hide">{{ data.content }}</textarea>#}
+{#    <div id="input">{{ data.content }}</div>#}
+
+    <div id="preview" class="preview"><pre>{{ data.content }}</pre></div>
+{#    <input id="input" class="hidden hide" type="text" oninput="this.preview.format()" value="{{ data.content }}"/>#}
+{#    {{ data.content }}#}
+
+    <script src="{% static "js/showdown.min.js" %}"></script>
+    <script src="{% static "js/showdown-table.min.js" %}"></script>
+{#    <script src="{% static "js/showup.js" %}"></script>#}
+    <script src="{% static "js/showup-single.js" %}"></script>
+{% endblock %}
