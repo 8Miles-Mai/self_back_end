@@ -1,4 +1,3 @@
-__author__ = 'miles'
 #coding=utf-8
 import json
 from django.shortcuts import render_to_response
