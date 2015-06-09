@@ -52,7 +52,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'self_back_end.urls'
 
-WSGI_APPLICATION = 'back_end.wsgi.application'
+WSGI_APPLICATION = 'self_back_end.wsgi.application'
 
 
 # Database
