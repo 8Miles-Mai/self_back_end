@@ -8,7 +8,9 @@ from back_end.store import store_info
 
 
 def index(request):
-    return render_to_response('back_end/tem.html', None)
+    data = {}
+    data["content"] = '#Test Case# Test case, test for markdown & others.'
+    return render_to_response('back_end/tem.html', {"data": data})
 
 
 def editor(request):

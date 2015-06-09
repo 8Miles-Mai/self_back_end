@@ -8,5 +8,5 @@ urlpatterns = [
 
     # url(r'^admin/', include(admin.site.urls)),
 
-    url(r'^back_end/', include('back_end.urls')),
+    url(r'^back_end/', include('back_end.urls.url_basic')),
 ]
